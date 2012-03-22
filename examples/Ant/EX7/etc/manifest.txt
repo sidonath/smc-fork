@@ -1,0 +1,2 @@
+Main-Class: smc_ex7.Telephone
+Name: SMC Java Example 7

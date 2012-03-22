@@ -1,0 +1,39 @@
+<project name="smc-ant" default="jar">
+  <description>SMC Ant Task</description>
+
+  <property name="build.dir" location="build" />
+  <property name="build.classes.dir" location="${build.dir}/classes" />
+  <property name="lib.dir" location="lib" />
+  <property name="src.dir" location="src" />
+  <property name="dist.dir" location="dist" />
+
+  <path id="class.path">
+   <fileset dir="${lib.dir}" includes="**/*.jar" />
+   <pathelement location="${build.classes.dir}" />
+  </path>
+
+  <target name="init">
+    <tstamp />
+    <mkdir dir="${build.classes.dir}" />
+    <mkdir dir="${dist.dir}" />
+  </target>
+
+  <target name="clean" description="clean">
+    <delete dir="${build.dir}" />
+    <delete dir="${dist.dir}" />
+  </target>
+
+  <target name="compile" depends="init" description="compile">
+    <javac debug="on" deprecation="on" classpathref="class.path"
+      destdir="${build.classes.dir}">
+      <src path="${src.dir}" />
+      <compilerarg value="-Xlint:unchecked" />
+    </javac>
+  </target>
+
+  <target name="jar" depends="compile" description="jar">
+    <jar destfile="${dist.dir}/smc-ant.jar" basedir="${build.classes.dir}" />
+  </target>
+ 
+</project>
+

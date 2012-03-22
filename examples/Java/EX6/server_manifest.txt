@@ -1,0 +1,2 @@
+Main-Class: smc_ex6.server
+Name: SMC Java Example 6

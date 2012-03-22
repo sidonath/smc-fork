@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		833068C10A6AB653006C08DA /* Phone.icns in Resources */ = {isa = PBXBuildFile; fileRef = 833068C00A6AB653006C08DA /* Phone.icns */; };
+		83E7E8490A65E0A300554C26 /* Telephone.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E7E8480A65E0A300554C26 /* Telephone.m */; };
+		83E7E8850A65E0C600554C26 /* 0.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E84D0A65E0C600554C26 /* 0.au */; };
+		83E7E8860A65E0C600554C26 /* 1.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E84E0A65E0C600554C26 /* 1.au */; };
+		83E7E8870A65E0C600554C26 /* 2.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E84F0A65E0C600554C26 /* 2.au */; };
+		83E7E8880A65E0C600554C26 /* 3.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8500A65E0C600554C26 /* 3.au */; };
+		83E7E8890A65E0C600554C26 /* 4.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8510A65E0C600554C26 /* 4.au */; };
+		83E7E88A0A65E0C600554C26 /* 5.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8520A65E0C600554C26 /* 5.au */; };
+		83E7E88B0A65E0C600554C26 /* 6.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8530A65E0C600554C26 /* 6.au */; };
+		83E7E88C0A65E0C600554C26 /* 7.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8540A65E0C600554C26 /* 7.au */; };
+		83E7E88D0A65E0C600554C26 /* 8.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8550A65E0C600554C26 /* 8.au */; };
+		83E7E88E0A65E0C600554C26 /* 9.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8560A65E0C600554C26 /* 9.au */; };
+		83E7E88F0A65E0C600554C26 /* 10.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8570A65E0C600554C26 /* 10.au */; };
+		83E7E8900A65E0C600554C26 /* 11.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8580A65E0C600554C26 /* 11.au */; };
+		83E7E8910A65E0C600554C26 /* 12.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8590A65E0C600554C26 /* 12.au */; };
+		83E7E8920A65E0C600554C26 /* 13.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E85A0A65E0C600554C26 /* 13.au */; };
+		83E7E8930A65E0C600554C26 /* 14.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E85B0A65E0C600554C26 /* 14.au */; };
+		83E7E8940A65E0C600554C26 /* 15.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E85C0A65E0C600554C26 /* 15.au */; };
+		83E7E8950A65E0C600554C26 /* 16.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E85D0A65E0C600554C26 /* 16.au */; };
+		83E7E8960A65E0C600554C26 /* 17.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E85E0A65E0C600554C26 /* 17.au */; };
+		83E7E8970A65E0C600554C26 /* 18.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E85F0A65E0C600554C26 /* 18.au */; };
+		83E7E8980A65E0C600554C26 /* 19.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8600A65E0C600554C26 /* 19.au */; };
+		83E7E8990A65E0C600554C26 /* 20.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8610A65E0C600554C26 /* 20.au */; };
+		83E7E89A0A65E0C600554C26 /* 30.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8620A65E0C600554C26 /* 30.au */; };
+		83E7E89B0A65E0C600554C26 /* 40.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8630A65E0C600554C26 /* 40.au */; };
+		83E7E89C0A65E0C600554C26 /* 50_cents_please.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8640A65E0C600554C26 /* 50_cents_please.au */; };
+		83E7E89D0A65E0C600554C26 /* 50.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8650A65E0C600554C26 /* 50.au */; };
+		83E7E89E0A65E0C600554C26 /* 911.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8660A65E0C600554C26 /* 911.au */; };
+		83E7E89F0A65E0C600554C26 /* AM.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8670A65E0C600554C26 /* AM.au */; };
+		83E7E8A00A65E0C600554C26 /* and.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8680A65E0C600554C26 /* and.au */; };
+		83E7E8A10A65E0C600554C26 /* busy_signal.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8690A65E0C600554C26 /* busy_signal.au */; };
+		83E7E8A20A65E0C600554C26 /* could_not_be_completed.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E86A0A65E0C600554C26 /* could_not_be_completed.au */; };
+		83E7E8A30A65E0C600554C26 /* dialtone.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E86B0A65E0C600554C26 /* dialtone.au */; };
+		83E7E8A40A65E0C600554C26 /* error_signal.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E86C0A65E0C600554C26 /* error_signal.au */; };
+		83E7E8A50A65E0C600554C26 /* exactly.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E86D0A65E0C600554C26 /* exactly.au */; };
+		83E7E8A60A65E0C600554C26 /* fast_busy_signal.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E86E0A65E0C600554C26 /* fast_busy_signal.au */; };
+		83E7E8A70A65E0C600554C26 /* nyctemp.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E86F0A65E0C600554C26 /* nyctemp.au */; };
+		83E7E8A80A65E0C600554C26 /* oclock.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8700A65E0C600554C26 /* oclock.au */; };
+		83E7E8A90A65E0C600554C26 /* oh.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8710A65E0C600554C26 /* oh.au */; };
+		83E7E8AA0A65E0C600554C26 /* phone_off_hook.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8720A65E0C600554C26 /* phone_off_hook.au */; };
+		83E7E8AB0A65E0C600554C26 /* PM.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8730A65E0C600554C26 /* PM.au */; };
+		83E7E8AC0A65E0C600554C26 /* ring.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8740A65E0C600554C26 /* ring.au */; };
+		83E7E8AD0A65E0C600554C26 /* second.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8750A65E0C600554C26 /* second.au */; };
+		83E7E8AE0A65E0C600554C26 /* seconds.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8760A65E0C600554C26 /* seconds.au */; };
+		83E7E8AF0A65E0C600554C26 /* the_number_you_have_dialed.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8770A65E0C600554C26 /* the_number_you_have_dialed.au */; };
+		83E7E8B00A65E0C600554C26 /* the_time_is.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8780A65E0C600554C26 /* the_time_is.au */; };
+		83E7E8B10A65E0C600554C26 /* touch_tone_0.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8790A65E0C600554C26 /* touch_tone_0.au */; };
+		83E7E8B20A65E0C600554C26 /* touch_tone_1.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E87A0A65E0C600554C26 /* touch_tone_1.au */; };
+		83E7E8B30A65E0C600554C26 /* touch_tone_2.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E87B0A65E0C600554C26 /* touch_tone_2.au */; };
+		83E7E8B40A65E0C600554C26 /* touch_tone_3.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E87C0A65E0C600554C26 /* touch_tone_3.au */; };
+		83E7E8B50A65E0C600554C26 /* touch_tone_4.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E87D0A65E0C600554C26 /* touch_tone_4.au */; };
+		83E7E8B60A65E0C600554C26 /* touch_tone_5.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E87E0A65E0C600554C26 /* touch_tone_5.au */; };
+		83E7E8B70A65E0C600554C26 /* touch_tone_6.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E87F0A65E0C600554C26 /* touch_tone_6.au */; };
+		83E7E8B80A65E0C600554C26 /* touch_tone_7.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8800A65E0C600554C26 /* touch_tone_7.au */; };
+		83E7E8B90A65E0C600554C26 /* touch_tone_8.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8810A65E0C600554C26 /* touch_tone_8.au */; };
+		83E7E8BA0A65E0C600554C26 /* touch_tone_9.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8820A65E0C600554C26 /* touch_tone_9.au */; };
+		83E7E8BB0A65E0C600554C26 /* touch_tone_10.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8830A65E0C600554C26 /* touch_tone_10.au */; };
+		83E7E8BC0A65E0C600554C26 /* touch_tone_11.au in Resources */ = {isa = PBXBuildFile; fileRef = 83E7E8840A65E0C600554C26 /* touch_tone_11.au */; };
+		83E7E90F0A65E3D900554C26 /* Telephone_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E7E90E0A65E3D900554C26 /* Telephone_sm.m */; };
+		83E7E91A0A65E42C00554C26 /* statemap.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E7E9190A65E42C00554C26 /* statemap.m */; };
+		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Telephone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telephone_Prefix.pch; sourceTree = "<group>"; };
+		833068C00A6AB653006C08DA /* Phone.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Phone.icns; sourceTree = "<group>"; };
+		83E7E8470A65E0A300554C26 /* Telephone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telephone.h; sourceTree = "<group>"; };
+		83E7E8480A65E0A300554C26 /* Telephone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Telephone.m; sourceTree = "<group>"; };
+		83E7E84D0A65E0C600554C26 /* 0.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 0.au; path = sounds/0.au; sourceTree = "<group>"; };
+		83E7E84E0A65E0C600554C26 /* 1.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 1.au; path = sounds/1.au; sourceTree = "<group>"; };
+		83E7E84F0A65E0C600554C26 /* 2.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 2.au; path = sounds/2.au; sourceTree = "<group>"; };
+		83E7E8500A65E0C600554C26 /* 3.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 3.au; path = sounds/3.au; sourceTree = "<group>"; };
+		83E7E8510A65E0C600554C26 /* 4.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 4.au; path = sounds/4.au; sourceTree = "<group>"; };
+		83E7E8520A65E0C600554C26 /* 5.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 5.au; path = sounds/5.au; sourceTree = "<group>"; };
+		83E7E8530A65E0C600554C26 /* 6.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 6.au; path = sounds/6.au; sourceTree = "<group>"; };
+		83E7E8540A65E0C600554C26 /* 7.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 7.au; path = sounds/7.au; sourceTree = "<group>"; };
+		83E7E8550A65E0C600554C26 /* 8.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 8.au; path = sounds/8.au; sourceTree = "<group>"; };
+		83E7E8560A65E0C600554C26 /* 9.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 9.au; path = sounds/9.au; sourceTree = "<group>"; };
+		83E7E8570A65E0C600554C26 /* 10.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 10.au; path = sounds/10.au; sourceTree = "<group>"; };
+		83E7E8580A65E0C600554C26 /* 11.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 11.au; path = sounds/11.au; sourceTree = "<group>"; };
+		83E7E8590A65E0C600554C26 /* 12.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 12.au; path = sounds/12.au; sourceTree = "<group>"; };
+		83E7E85A0A65E0C600554C26 /* 13.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 13.au; path = sounds/13.au; sourceTree = "<group>"; };
+		83E7E85B0A65E0C600554C26 /* 14.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 14.au; path = sounds/14.au; sourceTree = "<group>"; };
+		83E7E85C0A65E0C600554C26 /* 15.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 15.au; path = sounds/15.au; sourceTree = "<group>"; };
+		83E7E85D0A65E0C600554C26 /* 16.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 16.au; path = sounds/16.au; sourceTree = "<group>"; };
+		83E7E85E0A65E0C600554C26 /* 17.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 17.au; path = sounds/17.au; sourceTree = "<group>"; };
+		83E7E85F0A65E0C600554C26 /* 18.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 18.au; path = sounds/18.au; sourceTree = "<group>"; };
+		83E7E8600A65E0C600554C26 /* 19.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 19.au; path = sounds/19.au; sourceTree = "<group>"; };
+		83E7E8610A65E0C600554C26 /* 20.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 20.au; path = sounds/20.au; sourceTree = "<group>"; };
+		83E7E8620A65E0C600554C26 /* 30.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 30.au; path = sounds/30.au; sourceTree = "<group>"; };
+		83E7E8630A65E0C600554C26 /* 40.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 40.au; path = sounds/40.au; sourceTree = "<group>"; };
+		83E7E8640A65E0C600554C26 /* 50_cents_please.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 50_cents_please.au; path = sounds/50_cents_please.au; sourceTree = "<group>"; };
+		83E7E8650A65E0C600554C26 /* 50.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 50.au; path = sounds/50.au; sourceTree = "<group>"; };
+		83E7E8660A65E0C600554C26 /* 911.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = 911.au; path = sounds/911.au; sourceTree = "<group>"; };
+		83E7E8670A65E0C600554C26 /* AM.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = AM.au; path = sounds/AM.au; sourceTree = "<group>"; };
+		83E7E8680A65E0C600554C26 /* and.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = and.au; path = sounds/and.au; sourceTree = "<group>"; };
+		83E7E8690A65E0C600554C26 /* busy_signal.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = busy_signal.au; path = sounds/busy_signal.au; sourceTree = "<group>"; };
+		83E7E86A0A65E0C600554C26 /* could_not_be_completed.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = could_not_be_completed.au; path = sounds/could_not_be_completed.au; sourceTree = "<group>"; };
+		83E7E86B0A65E0C600554C26 /* dialtone.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = dialtone.au; path = sounds/dialtone.au; sourceTree = "<group>"; };
+		83E7E86C0A65E0C600554C26 /* error_signal.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = error_signal.au; path = sounds/error_signal.au; sourceTree = "<group>"; };
+		83E7E86D0A65E0C600554C26 /* exactly.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = exactly.au; path = sounds/exactly.au; sourceTree = "<group>"; };
+		83E7E86E0A65E0C600554C26 /* fast_busy_signal.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = fast_busy_signal.au; path = sounds/fast_busy_signal.au; sourceTree = "<group>"; };
+		83E7E86F0A65E0C600554C26 /* nyctemp.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = nyctemp.au; path = sounds/nyctemp.au; sourceTree = "<group>"; };
+		83E7E8700A65E0C600554C26 /* oclock.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = oclock.au; path = sounds/oclock.au; sourceTree = "<group>"; };
+		83E7E8710A65E0C600554C26 /* oh.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = oh.au; path = sounds/oh.au; sourceTree = "<group>"; };
+		83E7E8720A65E0C600554C26 /* phone_off_hook.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = phone_off_hook.au; path = sounds/phone_off_hook.au; sourceTree = "<group>"; };
+		83E7E8730A65E0C600554C26 /* PM.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = PM.au; path = sounds/PM.au; sourceTree = "<group>"; };
+		83E7E8740A65E0C600554C26 /* ring.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = ring.au; path = sounds/ring.au; sourceTree = "<group>"; };
+		83E7E8750A65E0C600554C26 /* second.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = second.au; path = sounds/second.au; sourceTree = "<group>"; };
+		83E7E8760A65E0C600554C26 /* seconds.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = seconds.au; path = sounds/seconds.au; sourceTree = "<group>"; };
+		83E7E8770A65E0C600554C26 /* the_number_you_have_dialed.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = the_number_you_have_dialed.au; path = sounds/the_number_you_have_dialed.au; sourceTree = "<group>"; };
+		83E7E8780A65E0C600554C26 /* the_time_is.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = the_time_is.au; path = sounds/the_time_is.au; sourceTree = "<group>"; };
+		83E7E8790A65E0C600554C26 /* touch_tone_0.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_0.au; path = sounds/touch_tone_0.au; sourceTree = "<group>"; };
+		83E7E87A0A65E0C600554C26 /* touch_tone_1.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_1.au; path = sounds/touch_tone_1.au; sourceTree = "<group>"; };
+		83E7E87B0A65E0C600554C26 /* touch_tone_2.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_2.au; path = sounds/touch_tone_2.au; sourceTree = "<group>"; };
+		83E7E87C0A65E0C600554C26 /* touch_tone_3.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_3.au; path = sounds/touch_tone_3.au; sourceTree = "<group>"; };
+		83E7E87D0A65E0C600554C26 /* touch_tone_4.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_4.au; path = sounds/touch_tone_4.au; sourceTree = "<group>"; };
+		83E7E87E0A65E0C600554C26 /* touch_tone_5.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_5.au; path = sounds/touch_tone_5.au; sourceTree = "<group>"; };
+		83E7E87F0A65E0C600554C26 /* touch_tone_6.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_6.au; path = sounds/touch_tone_6.au; sourceTree = "<group>"; };
+		83E7E8800A65E0C600554C26 /* touch_tone_7.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_7.au; path = sounds/touch_tone_7.au; sourceTree = "<group>"; };
+		83E7E8810A65E0C600554C26 /* touch_tone_8.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_8.au; path = sounds/touch_tone_8.au; sourceTree = "<group>"; };
+		83E7E8820A65E0C600554C26 /* touch_tone_9.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_9.au; path = sounds/touch_tone_9.au; sourceTree = "<group>"; };
+		83E7E8830A65E0C600554C26 /* touch_tone_10.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_10.au; path = sounds/touch_tone_10.au; sourceTree = "<group>"; };
+		83E7E8840A65E0C600554C26 /* touch_tone_11.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = touch_tone_11.au; path = sounds/touch_tone_11.au; sourceTree = "<group>"; };
+		83E7E90D0A65E3D900554C26 /* Telephone_sm.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Telephone_sm.h; sourceTree = "<group>"; };
+		83E7E90E0A65E3D900554C26 /* Telephone_sm.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = Telephone_sm.m; sourceTree = "<group>"; };
+		83E7E9180A65E42C00554C26 /* statemap.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = statemap.h; sourceTree = "<group>"; };
+		83E7E9190A65E42C00554C26 /* statemap.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = statemap.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Telephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				83E7E9100A65E41900554C26 /* smc */,
+				83E7E90D0A65E3D900554C26 /* Telephone_sm.h */,
+				83E7E90E0A65E3D900554C26 /* Telephone_sm.m */,
+				83E7E8470A65E0A300554C26 /* Telephone.h */,
+				83E7E8480A65E0A300554C26 /* Telephone.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Telephone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Telephone */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Telephone;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* Telephone_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				833068C00A6AB653006C08DA /* Phone.icns */,
+				83E7E8BD0A65E0CD00554C26 /* sounds */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83E7E8BD0A65E0CD00554C26 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				83E7E84D0A65E0C600554C26 /* 0.au */,
+				83E7E84E0A65E0C600554C26 /* 1.au */,
+				83E7E84F0A65E0C600554C26 /* 2.au */,
+				83E7E8500A65E0C600554C26 /* 3.au */,
+				83E7E8510A65E0C600554C26 /* 4.au */,
+				83E7E8520A65E0C600554C26 /* 5.au */,
+				83E7E8530A65E0C600554C26 /* 6.au */,
+				83E7E8540A65E0C600554C26 /* 7.au */,
+				83E7E8550A65E0C600554C26 /* 8.au */,
+				83E7E8560A65E0C600554C26 /* 9.au */,
+				83E7E8570A65E0C600554C26 /* 10.au */,
+				83E7E8580A65E0C600554C26 /* 11.au */,
+				83E7E8590A65E0C600554C26 /* 12.au */,
+				83E7E85A0A65E0C600554C26 /* 13.au */,
+				83E7E85B0A65E0C600554C26 /* 14.au */,
+				83E7E85C0A65E0C600554C26 /* 15.au */,
+				83E7E85D0A65E0C600554C26 /* 16.au */,
+				83E7E85E0A65E0C600554C26 /* 17.au */,
+				83E7E85F0A65E0C600554C26 /* 18.au */,
+				83E7E8600A65E0C600554C26 /* 19.au */,
+				83E7E8610A65E0C600554C26 /* 20.au */,
+				83E7E8620A65E0C600554C26 /* 30.au */,
+				83E7E8630A65E0C600554C26 /* 40.au */,
+				83E7E8640A65E0C600554C26 /* 50_cents_please.au */,
+				83E7E8650A65E0C600554C26 /* 50.au */,
+				83E7E8660A65E0C600554C26 /* 911.au */,
+				83E7E8670A65E0C600554C26 /* AM.au */,
+				83E7E8680A65E0C600554C26 /* and.au */,
+				83E7E8690A65E0C600554C26 /* busy_signal.au */,
+				83E7E86A0A65E0C600554C26 /* could_not_be_completed.au */,
+				83E7E86B0A65E0C600554C26 /* dialtone.au */,
+				83E7E86C0A65E0C600554C26 /* error_signal.au */,
+				83E7E86D0A65E0C600554C26 /* exactly.au */,
+				83E7E86E0A65E0C600554C26 /* fast_busy_signal.au */,
+				83E7E86F0A65E0C600554C26 /* nyctemp.au */,
+				83E7E8700A65E0C600554C26 /* oclock.au */,
+				83E7E8710A65E0C600554C26 /* oh.au */,
+				83E7E8720A65E0C600554C26 /* phone_off_hook.au */,
+				83E7E8730A65E0C600554C26 /* PM.au */,
+				83E7E8740A65E0C600554C26 /* ring.au */,
+				83E7E8750A65E0C600554C26 /* second.au */,
+				83E7E8760A65E0C600554C26 /* seconds.au */,
+				83E7E8770A65E0C600554C26 /* the_number_you_have_dialed.au */,
+				83E7E8780A65E0C600554C26 /* the_time_is.au */,
+				83E7E8790A65E0C600554C26 /* touch_tone_0.au */,
+				83E7E87A0A65E0C600554C26 /* touch_tone_1.au */,
+				83E7E87B0A65E0C600554C26 /* touch_tone_2.au */,
+				83E7E87C0A65E0C600554C26 /* touch_tone_3.au */,
+				83E7E87D0A65E0C600554C26 /* touch_tone_4.au */,
+				83E7E87E0A65E0C600554C26 /* touch_tone_5.au */,
+				83E7E87F0A65E0C600554C26 /* touch_tone_6.au */,
+				83E7E8800A65E0C600554C26 /* touch_tone_7.au */,
+				83E7E8810A65E0C600554C26 /* touch_tone_8.au */,
+				83E7E8820A65E0C600554C26 /* touch_tone_9.au */,
+				83E7E8830A65E0C600554C26 /* touch_tone_10.au */,
+				83E7E8840A65E0C600554C26 /* touch_tone_11.au */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
+		83E7E9100A65E41900554C26 /* smc */ = {
+			isa = PBXGroup;
+			children = (
+				83E7E9180A65E42C00554C26 /* statemap.h */,
+				83E7E9190A65E42C00554C26 /* statemap.m */,
+			);
+			name = smc;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Telephone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Telephone" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				837DFFFB0A6AAFC300E0AE13 /* Run SMC */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Telephone;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Telephone;
+			productReference = 8D1107320486CEB800E47090 /* Telephone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Telephone" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Telephone */;
+			projectDirPath = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Telephone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				83E7E8850A65E0C600554C26 /* 0.au in Resources */,
+				83E7E8860A65E0C600554C26 /* 1.au in Resources */,
+				83E7E8870A65E0C600554C26 /* 2.au in Resources */,
+				83E7E8880A65E0C600554C26 /* 3.au in Resources */,
+				83E7E8890A65E0C600554C26 /* 4.au in Resources */,
+				83E7E88A0A65E0C600554C26 /* 5.au in Resources */,
+				83E7E88B0A65E0C600554C26 /* 6.au in Resources */,
+				83E7E88C0A65E0C600554C26 /* 7.au in Resources */,
+				83E7E88D0A65E0C600554C26 /* 8.au in Resources */,
+				83E7E88E0A65E0C600554C26 /* 9.au in Resources */,
+				83E7E88F0A65E0C600554C26 /* 10.au in Resources */,
+				83E7E8900A65E0C600554C26 /* 11.au in Resources */,
+				83E7E8910A65E0C600554C26 /* 12.au in Resources */,
+				83E7E8920A65E0C600554C26 /* 13.au in Resources */,
+				83E7E8930A65E0C600554C26 /* 14.au in Resources */,
+				83E7E8940A65E0C600554C26 /* 15.au in Resources */,
+				83E7E8950A65E0C600554C26 /* 16.au in Resources */,
+				83E7E8960A65E0C600554C26 /* 17.au in Resources */,
+				83E7E8970A65E0C600554C26 /* 18.au in Resources */,
+				83E7E8980A65E0C600554C26 /* 19.au in Resources */,
+				83E7E8990A65E0C600554C26 /* 20.au in Resources */,
+				83E7E89A0A65E0C600554C26 /* 30.au in Resources */,
+				83E7E89B0A65E0C600554C26 /* 40.au in Resources */,
+				83E7E89C0A65E0C600554C26 /* 50_cents_please.au in Resources */,
+				83E7E89D0A65E0C600554C26 /* 50.au in Resources */,
+				83E7E89E0A65E0C600554C26 /* 911.au in Resources */,
+				83E7E89F0A65E0C600554C26 /* AM.au in Resources */,
+				83E7E8A00A65E0C600554C26 /* and.au in Resources */,
+				83E7E8A10A65E0C600554C26 /* busy_signal.au in Resources */,
+				83E7E8A20A65E0C600554C26 /* could_not_be_completed.au in Resources */,
+				83E7E8A30A65E0C600554C26 /* dialtone.au in Resources */,
+				83E7E8A40A65E0C600554C26 /* error_signal.au in Resources */,
+				83E7E8A50A65E0C600554C26 /* exactly.au in Resources */,
+				83E7E8A60A65E0C600554C26 /* fast_busy_signal.au in Resources */,
+				83E7E8A70A65E0C600554C26 /* nyctemp.au in Resources */,
+				83E7E8A80A65E0C600554C26 /* oclock.au in Resources */,
+				83E7E8A90A65E0C600554C26 /* oh.au in Resources */,
+				83E7E8AA0A65E0C600554C26 /* phone_off_hook.au in Resources */,
+				83E7E8AB0A65E0C600554C26 /* PM.au in Resources */,
+				83E7E8AC0A65E0C600554C26 /* ring.au in Resources */,
+				83E7E8AD0A65E0C600554C26 /* second.au in Resources */,
+				83E7E8AE0A65E0C600554C26 /* seconds.au in Resources */,
+				83E7E8AF0A65E0C600554C26 /* the_number_you_have_dialed.au in Resources */,
+				83E7E8B00A65E0C600554C26 /* the_time_is.au in Resources */,
+				83E7E8B10A65E0C600554C26 /* touch_tone_0.au in Resources */,
+				83E7E8B20A65E0C600554C26 /* touch_tone_1.au in Resources */,
+				83E7E8B30A65E0C600554C26 /* touch_tone_2.au in Resources */,
+				83E7E8B40A65E0C600554C26 /* touch_tone_3.au in Resources */,
+				83E7E8B50A65E0C600554C26 /* touch_tone_4.au in Resources */,
+				83E7E8B60A65E0C600554C26 /* touch_tone_5.au in Resources */,
+				83E7E8B70A65E0C600554C26 /* touch_tone_6.au in Resources */,
+				83E7E8B80A65E0C600554C26 /* touch_tone_7.au in Resources */,
+				83E7E8B90A65E0C600554C26 /* touch_tone_8.au in Resources */,
+				83E7E8BA0A65E0C600554C26 /* touch_tone_9.au in Resources */,
+				83E7E8BB0A65E0C600554C26 /* touch_tone_10.au in Resources */,
+				83E7E8BC0A65E0C600554C26 /* touch_tone_11.au in Resources */,
+				833068C10A6AB653006C08DA /* Phone.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		837DFFFB0A6AAFC300E0AE13 /* Run SMC */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Telephone.sm",
+			);
+			name = "Run SMC";
+			outputPaths = (
+				"$(SRCROOT)/Telephone_sm.h",
+				"$(SRCROOT)/Telephone_sm.m",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "java -jar ../../../bin/Smc.jar -objc -g Telephone.sm\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				83E7E8490A65E0A300554C26 /* Telephone.m in Sources */,
+				83E7E90F0A65E3D900554C26 /* Telephone_sm.m in Sources */,
+				83E7E91A0A65E42C00554C26 /* statemap.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Telephone;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Telephone;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Telephone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Telephone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

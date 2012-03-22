@@ -1,0 +1,126 @@
+# 
+# The contents of this file are subject to the Mozilla Public
+# License Version 1.1 (the "License"); you may not use this file
+# except in compliance with the License. You may obtain a copy
+# of the License at http://www.mozilla.org/MPL/
+# 
+# Software distributed under the License is distributed on an
+# "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or
+# implied. See the License for the specific language governing
+# rights and limitations under the License.
+# 
+# The Original Code is State Machine Compiler (SMC).
+# 
+# The Initial Developer of the Original Code is Charles W. Rapp.
+# Portions created by Charles W. Rapp are
+# Copyright (C) 2000 - 2004. Charles W. Rapp.
+# All Rights Reserved.
+# 
+# Contributor(s):
+#
+# RCS ID
+# $Id: Makefile.win,v 1.6 2007/12/28 12:34:40 cwrapp Exp $
+#
+# CHANGE LOG
+# (See the bottom of this file.)
+#
+
+#################################################################
+# Macros.
+#
+
+SM_SOURCES=	TcpConnection.sm
+
+SOURCES=	TcpConnectionContext.java \
+		AsyncTimer.java \
+		TimerListener.java \
+		AsyncDatagramSocket.java \
+		DatagramSocketListener.java \
+		TcpSegment.java \
+		TcpConnection.java \
+		TcpConnectionListener.java \
+		TcpClient.java \
+		TcpServer.java \
+		server.java \
+		client.java
+
+APP_CLASSPATH=	"$(CLASSPATH);../../../lib/Java/statemap.jar"
+
+JAVAC=		javac
+JAVAC_FLAGS=	-g -classpath $(APP_CLASSPATH)
+
+# REFLECTION
+# Uncomment following line to test reflection
+# REFLECT=	-reflect
+
+SMC=		java -jar ../../../bin/Smc.jar
+SMC_FLAGS=	-java -g -sync $(REFLECT)
+
+#################################################################
+# Rules.
+#
+
+%Context.java : %.sm
+		$(SMC) $(SMC_FLAGS) $<
+
+%_sm.dot :	%.sm
+		$(SMC) -graph -glevel 1 $<
+
+all :		tcpdemo
+
+tcpdemo :	$(SOURCES)
+		$(JAVAC) $(JAVAC_FLAGS) $(SOURCES)
+
+graph :		$(SM_SOURCES:%.sm=%_sm.dot)
+
+clean :
+		-rm -f *.class *Context.java *_sm.dot
+
+#
+# CHANGE LOG
+# $Log: Makefile.win,v $
+# Revision 1.6  2007/12/28 12:34:40  cwrapp
+# Version 5.0.1 check-in.
+#
+# Revision 1.5  2005/11/07 19:34:54  cwrapp
+# Changes in release 4.3.0:
+# New features:
+#
+# + Added -reflect option for Java, C#, VB.Net and Tcl code
+#   generation. When used, allows applications to query a state
+#   about its supported transitions. Returns a list of transition
+#   names. This feature is useful to GUI developers who want to
+#   enable/disable features based on the current state. See
+#   Programmer's Manual section 11: On Reflection for more
+#   information.
+#
+# + Updated LICENSE.txt with a missing final paragraph which allows
+#   MPL 1.1 covered code to work with the GNU GPL.
+#
+# + Added a Maven plug-in and an ant task to a new tools directory.
+#   Added Eiten Suez's SMC tutorial (in PDF) to a new docs
+#   directory.
+#
+# Fixed the following bugs:
+#
+# + (GraphViz) DOT file generation did not properly escape
+#   double quotes appearing in transition guards. This has been
+#   corrected.
+#
+# + A note: the SMC FAQ incorrectly stated that C/C++ generated
+#   code is thread safe. This is wrong. C/C++ generated is
+#   certainly *not* thread safe. Multi-threaded C/C++ applications
+#   are required to synchronize access to the FSM to allow for
+#   correct performance.
+#
+# + (Java) The generated getState() method is now public.
+#
+# Revision 1.4  2005/05/28 13:51:24  cwrapp
+# Update Java examples 1 - 7.
+#
+# Revision 1.1  2004/10/30 12:02:04  charlesr
+# Added Graphviz rules.
+#
+# Revision 1.0  2003/12/14 20:18:04  charlesr
+# Initial revision
+#

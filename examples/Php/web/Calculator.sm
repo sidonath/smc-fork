@@ -1,0 +1,121 @@
+// -*- tab-width: 4; -*-//
+// The contents of this file are subject to the Mozilla Public
+// License Version 1.1 (the "License"); you may not use this file
+// except in compliance with the License. You may obtain a copy of
+// the License at http://www.mozilla.org/MPL/
+//
+// Software distributed under the License is distributed on an "AS
+// IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or
+// implied. See the License for the specific language governing
+// rights and limitations under the License.
+//
+// The Original Code is State Machine Compiler (SMC).
+//
+// The Initial Developer of the Original Code is Charles W. Rapp.
+// Portions created by Charles W. Rapp are
+// Copyright (C) 2000 - 2003 Charles W. Rapp.
+// All Rights Reserved.
+//
+// Contributor(s):
+//      Port to PHP by Toni Arnold
+//
+// State Machine
+//	Calculator
+//
+// Description
+//  This state machine implements a simple RPN calculator
+//  for a dynamic PHP web page.
+//
+// RCS ID
+// $Id: Calculator.sm,v 1.2 2008/08/02 09:23:01 fperrad Exp $
+//
+// CHANGE LOG
+// $Log: Calculator.sm,v $
+// Revision 1.2  2008/08/02 09:23:01  fperrad
+// + refactor with internal event
+//
+// Revision 1.1  2008/04/22 15:58:41  fperrad
+// - add PHP language (patch from Toni Arnold)
+//.
+//
+
+%start Map1::Splash
+%class Calculator
+
+%map Map1
+%%
+// State		Transition			End State		Action(s)
+//					Transition Guard
+
+Splash
+{
+				Enter($value)		Enter			{}
+}
+
+Enter
+{
+				Enter($value)
+					[is_numeric($value)]
+									Calculate		{Push($value);}
+				Enter($value)		ErrorNumeric	{}
+}
+
+Calculate
+{
+				Add($stack: array)
+					[count($stack) >= 2]
+									nil			{Add();}
+				Add($stack: array)	ErrorTuple		{}
+
+				Sub($stack: array)
+					[count($stack) >= 2]
+									nil			{Sub();}
+				Sub($stack: array)	ErrorTuple		{}
+
+				Mul($stack: array)
+					[count($stack) >= 2]
+									nil			{Mul();}
+				Mul($stack: array)	ErrorTuple		{}
+
+				Div($stack: array)
+					[count($stack) >= 2]
+									nil			{Div();}
+				Div($stack: array)	ErrorTuple		{}
+
+				Pow($stack: array)
+					[count($stack) >= 1]
+									nil			{Pow();}
+				Pow($stack: array)	ErrorEmpty		{}
+
+				Sqrt($stack: array)
+					[count($stack) >= 1]
+									nil			{Sqrt();}
+				Sqrt($stack: array)	ErrorEmpty		{}
+
+				Clr($stack: array)
+					[count($stack) >= 1]
+									nil			{Clr();}
+				Clr($stack: array)	ErrorEmpty		{}
+
+				ClrAll($stack: array)
+									nil			{ClrAll();}
+
+				Enter($value)		Enter			{}
+}
+
+ErrorNumeric
+{
+				Enter($value)		Enter			{}
+}
+
+ErrorTuple
+{
+				Enter($value)		Enter			{}
+}
+
+ErrorEmpty
+{
+				Enter($value)		Enter			{}
+}
+
+%%

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "statemap", "statemap.vbproj", "{6F8B6A61-1B53-45F7-8CFE-C4C808A7A687}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{6F8B6A61-1B53-45F7-8CFE-C4C808A7A687}.Debug.ActiveCfg = Debug|.NET
+		{6F8B6A61-1B53-45F7-8CFE-C4C808A7A687}.Debug.Build.0 = Debug|.NET
+		{6F8B6A61-1B53-45F7-8CFE-C4C808A7A687}.Release.ActiveCfg = Release|.NET
+		{6F8B6A61-1B53-45F7-8CFE-C4C808A7A687}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

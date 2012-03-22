@@ -1,0 +1,2 @@
+Main-Class: smc_ex5.taskdemo
+Name: SMC Java Example 5

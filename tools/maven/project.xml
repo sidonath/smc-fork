@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <pomVersion>3</pomVersion>
+  <groupId>smc</groupId>
+  <id>smc-plugin</id>
+  <name>Maven SMC Plugin</name>
+  <currentVersion>1.3.0</currentVersion>
+  <description>Plugin for the StateMachineCompiler</description>
+  <shortDescription>State Machine Compiler</shortDescription>
+
+  <developers>
+    <developer>
+      <name>Christian Koestlin</name>
+      <id>cK</id>
+      <email>gizmo@flopcode.com</email>
+      <organization>flopcode</organization>
+      <roles>
+        <role>Creator</role>
+        <role>Java Developer</role>
+        <role>Release Manager</role>
+      </roles>
+    </developer>
+  </developers>
+  <contributors />
+  
+  <dependencies>
+    <dependency>
+      <groupId>smc</groupId>
+      <artifactId>smc</artifactId>
+      <version>1.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>smc</groupId>
+      <artifactId>smc-ant</artifactId>
+      <version>1.3.0</version>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <resources>
+      <resource>
+        <directory>${basedir}</directory>
+        <includes>
+          <include>plugin.jelly</include>
+          <include>plugin.properties</include>
+          <include>project.xml</include>
+        </includes>
+      </resource>
+    </resources>
+    <nagEmailAddress>gizmo@flopcode.com</nagEmailAddress>
+  </build>    
+    
+</project>

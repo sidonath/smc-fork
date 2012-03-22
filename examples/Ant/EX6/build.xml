@@ -1,0 +1,68 @@
+<project name="smc-ex1" default="compile">
+  <description>SMC Example 1</description>
+
+  <property name="build.dir" location="build" />
+  <property name="build.classes.dir" location="${build.dir}/classes" />
+  <property name="lib.dir" location="../../../lib/Java" />
+  <property name="src.dir" location="src" />
+  <property name="gen.dir" location="gen" />
+  <property name="bin.dir" location="../../../bin" />
+  <property name="etc.dir" location="etc" />
+
+  <property name="smc.jar" location="${bin.dir}/Smc.jar" />
+
+  <property name="client-classname" value="smc_ex6.client" />
+  <property name="server-classname" value="smc_ex6.server" />
+  <property name="port-number" value="8123" />
+
+  <property name="tcp.sm" location="${etc.dir}/TcpConnection.sm" />
+
+  <path id="class.path">
+   <fileset dir="${lib.dir}" includes="statemap.jar" />
+   <pathelement location="${build.classes.dir}" />
+  </path>
+
+  <target name="init">
+    <tstamp />
+    <mkdir dir="${gen.dir}" />
+    <mkdir dir="${build.classes.dir}" />
+  </target>
+
+  <target name="clean">
+    <delete dir="${build.dir}" />
+    <delete dir="${gen.dir}" />
+  </target>
+
+  <target name="gen" description="Generate state support code (smc)" depends="init">
+     <antcall target="gen-one">
+       <param name="smfile" value="${tcp.sm}" />
+     </antcall>
+  </target>
+
+  <target name="gen-one">
+     <java dir="${gen.dir}" jar="${smc.jar}" fork="true">
+       <arg line="-java -d ${gen.dir} -return ${smfile}" />
+     </java>
+  </target>
+
+  <target name="compile" description="compile" depends="gen">
+    <javac debug="on" deprecation="on" classpathref="class.path" destdir="${build.classes.dir}">
+      <src path="${src.dir}" />
+      <src path="${gen.dir}" />
+    </javac>
+  </target>
+
+  <target name="run-client" depends="compile" description="run">
+    <java classname="${client-classname}" classpathref="class.path" fork="true">
+      <arg line="localhost ${port-number}" />
+    </java>
+  </target>
+ 
+  <target name="run-server" depends="compile" description="run">
+    <java classname="${server-classname}" classpathref="class.path" fork="true">
+      <arg line="${port-number}" />
+    </java>
+  </target>
+ 
+</project>
+

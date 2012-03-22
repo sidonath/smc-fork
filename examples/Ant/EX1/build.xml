@@ -1,0 +1,61 @@
+<project name="smc-ex1" default="run">
+  <description>SMC Example 1</description>
+
+  <property name="build.dir" location="build" />
+  <property name="build.classes.dir" location="${build.dir}/classes" />
+  <property name="lib.dir" location="../../../lib/Java" />
+  <property name="src.dir" location="src" />
+  <property name="gen.dir" location="gen" />
+  <property name="etc.dir" location="etc" />
+  <property name="bin.dir" location="../../../bin" />
+
+  <property name="smc.jar" location="${bin.dir}/Smc.jar" />
+
+  <property name="classname" value="checkstring" />
+  <property name="args_good" value="00000111" />
+  <property name="args_bad" value="111000" />
+
+  <property name="sm.file" location="${etc.dir}/AppClass.sm" />
+
+  <path id="class.path">
+   <fileset dir="${lib.dir}" includes="statemap.jar" />
+   <pathelement location="${build.classes.dir}" />
+  </path>
+
+  <target name="init">
+    <tstamp />
+    <mkdir dir="${gen.dir}" />
+    <mkdir dir="${build.classes.dir}" />
+  </target>
+
+  <target name="clean">
+    <delete dir="${build.dir}" />
+    <delete dir="${gen.dir}" />
+  </target>
+
+  <target name="gen" description="Generate state support code (smc)" depends="init">
+     <java dir="${src.dir}" jar="${smc.jar}" fork="true">
+     <arg line="-java -d ${gen.dir} -return ${sm.file}" />
+    </java>
+  </target>
+
+  <target name="compile" description="compile" depends="gen">
+    <javac debug="on" deprecation="on" classpathref="class.path" destdir="${build.classes.dir}">
+      <src path="${src.dir}" />
+      <src path="${gen.dir}" />
+    </javac>
+  </target>
+
+  <target name="run" depends="compile" description="run">
+    <java classname="${classname}" classpathref="class.path" fork="true">
+      <arg value="${args_good}" />
+    </java>
+    <java classname="${classname}" classpathref="class.path" fork="true">
+      <arg value="${args_bad}" />
+    </java>
+  </target>
+ 
+  <target name="cleanrun" depends="clean, run" description="Do a clean run" />
+
+</project>
+

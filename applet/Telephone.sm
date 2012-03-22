@@ -1,0 +1,927 @@
+//
+// The contents of this file are subject to the Mozilla Public
+// License Version 1.1 (the "License"); you may not use this file
+// except in compliance with the License. You may obtain a copy of
+// the License at http://www.mozilla.org/MPL/
+// 
+// Software distributed under the License is distributed on an "AS
+// IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or
+// implied. See the License for the specific language governing
+// rights and limitations under the License.
+// 
+// The Original Code is State Machine Compiler (SMC).
+// 
+// The Initial Developer of the Original Code is Charles W. Rapp.
+// Portions created by Charles W. Rapp are
+// Copyright (C) 2000 - 2003 Charles W. Rapp.
+// All Rights Reserved.
+// 
+// Contributor(s): 
+//
+// Name
+//  Telephone.sm
+//
+// Description
+//  Runs a plain old telphone. That means the proper sounds at
+//  the proper time.
+//
+// RCS ID
+// $Id: Telephone.sm,v 1.5 2006/04/22 12:45:23 cwrapp Exp $
+//
+// CHANGE LOG
+// $Log: Telephone.sm,v $
+// Revision 1.5  2006/04/22 12:45:23  cwrapp
+// Version 4.3.1
+//
+// Revision 1.4  2005/06/05 18:51:07  cwrapp
+// Added output actions back into FSM.
+//
+// Revision 1.3  2005/05/28 19:41:44  cwrapp
+// Update for SMC v. 4.0.0.
+//
+// Revision 1.1  2004/10/08 18:41:04  charlesr
+// Update guard syntax.
+//
+// Revision 1.0  2003/12/14 19:03:18  charlesr
+// Initial revision
+//
+
+%class Telephone
+%start CallMap::Initialized
+
+%map CallMap
+%%
+Initialized
+    Entry
+    {
+        writeState("Entering CallMap::Initialized");
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::Initialized");
+    }
+{
+    Start
+        OnHook
+        {
+            writeTransition("OnHook");
+        }
+
+    // Ignore all other transitions.
+    Default
+        nil
+        {
+             writeTransition("Default");
+        }
+}
+
+OnHook
+    Entry
+    {
+        writeState("Entering CallMap::OnHook");
+
+        writeStateAction("Entry", "updateClock()");
+        updateClock();
+
+        writeStateAction("Entry", "startClockTimer()");
+        startClockTimer();
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::OnHook");
+
+        writeStateAction("Exit", "stopTimer(\"ClockTimer\")");
+        stopTimer("ClockTimer");
+    }
+{
+    // We are handling the caller's side of the connection.
+    OffHook
+        push(PhoneNumber::DialTone)
+        {
+            writeTransition("push(PhoneNumber::DialTone)");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+
+            writeTransAction(
+                "setReceiver(\"on hook\", \"Put down receiver\")");
+            setReceiver("on hook", "Put down receiver");
+        }
+
+    // Dialing errors.
+    LeftOffHook
+        LeftOffHook
+        {
+            writeTransition("LeftOffHook");
+        }
+
+    InvalidDigit
+        InvalidDigit
+        {
+            writeTransition("InvalidDigit");
+        }
+
+    // Dialing successfully completed.
+    DialingDone
+        Routing
+        {
+            writeTransition("DialingDone");
+
+            writeTransAction("routeCall()");
+            routeCall();
+        }
+
+    // Time to update the clock's display.
+    ClockTimer
+        nil
+        {
+            writeTransition("ClockTimer");
+
+            writeTransAction("updateClock()");
+            updateClock();
+
+            writeTransAction("startClockTimer()");
+            startClockTimer();
+        }
+}
+
+// The call is now being routed.
+Routing
+    Entry
+    {
+        writeState("Entering CallMap::Routing");
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::Routing");
+    }
+{
+    Emergency
+        PlayingMessage
+        {
+            writeTransition("Emergency");
+
+            writeTransAction("playEmergency()");
+            playEmergency();
+        }
+
+    NYCTemp
+        NYCTemp
+        {
+            writeTransition("NYCTemp");
+        }
+
+    Time
+        Time
+        {
+            writeTransition("Time");
+        }
+
+    DepositMoney
+        DepositMoney
+        {
+            writeTransition("DepositMoney");
+        }
+
+    LineBusy
+        BusySignal
+        {
+            writeTransition("LineBusy");
+        }
+
+    InvalidNumber
+        PlayingMessage
+        {
+            writeTransition("InvalidNumber");
+
+            writeTransAction("playInvalidNumber()");
+            playInvalidNumber();
+        }
+}
+
+NYCTemp
+    Entry
+    {
+        writeState("Entering CallMap::NYCTemp");
+
+        writeStateAction("Entry", "loop(\"ringing\")");
+        loop("ringing");
+
+        writeStateAction(
+            "Entry", "startTimer(\"RingTimer\", 10000)");
+        startTimer("RingTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::NYCTemp");
+
+        writeStateAction(
+            "Entry", "stopTimer(\"RingTimer\")");
+        stopTimer("RingTimer");
+
+        writeStateAction("Entry", "stopLoop(\"ringing\")");
+        stopLoop("ringing");
+    }
+{
+    RingTimer
+        PlayingMessage
+        {
+            writeTransition("RingTimer");
+
+            writeTransAction("playNYCTemp()");
+            playNYCTemp();
+        }
+}
+
+Time
+    Entry
+    {
+        writeState("Entering CallMap::Time");
+
+        writeStateAction("Entry", "loop(\"ringing\")");
+        loop("ringing");
+
+        writeStateAction(
+            "Entry", "startTimer(\"RingTimer\", 10000)");
+        startTimer("RingTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::Time");
+
+        writeStateAction(
+            "Entry", "stopTimer(\"RingTimer\")");
+        stopTimer("RingTimer");
+
+        writeStateAction("Entry", "stopLoop(\"ringing\")");
+        stopLoop("ringing");
+    }
+{
+    RingTimer
+        PlayingMessage
+        {
+            writeTransition("RingTimer");
+
+            writeTransAction("playTime()");
+            playTime();
+        }
+}
+
+DepositMoney
+    Entry
+    {
+        writeState("Entering CallMap::DepositMoney");
+
+        writeStateAction("Entry", "loop(\"ringing\")");
+        loop("ringing");
+
+        writeStateAction(
+            "Entry", "startTimer(\"RingTimer\", 5000)");
+        startTimer("RingTimer", 5000);
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::DepositMoney");
+
+        writeStateAction(
+            "Entry", "stopTimer(\"RingTimer\")");
+        stopTimer("RingTimer");
+
+        writeStateAction("Entry", "stopLoop(\"ringing\")");
+        stopLoop("ringing");
+    }
+{
+        RingTimer       PlayingMessage  {playDepositMoney();}
+}
+
+BusySignal
+    Entry
+    {
+        writeState("Entering CallMap::BusySignal");
+
+        writeStateAction("Entry", "loop(\"busy\")");
+        loop("busy");
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::BusySignal");
+
+        writeStateAction("Entry", "stopLoop(\"busy\")");
+        stopLoop("busy");
+    }
+{
+    // Wait for on hook only.
+}
+
+PlayingMessage
+    Entry
+    {
+        writeState("Entering CallMap::PlayingMessage");
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::PlayingMessage");
+    }
+{
+    // If caller hangs up while a message is being played,
+    // be sure to stop the playback.
+    OnHook
+        OnHook
+        {
+            writeTransition("OnHook");
+
+            writeTransAction("stopPlayback()");
+            stopPlayback();
+
+            writeTransAction(
+                "setReceiver(\"off hook\", \"Pick up receiver\")");
+            setReceiver("off hook", "Pick up receiver");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+        }
+
+    Stop
+        Initialized
+        {
+            writeTransition("Stop");
+
+            writeTransAction("stopPlayback()");
+            stopPlayback();
+
+            writeTransAction(
+                "setReceiver(\"off hook\", \"Pick up receiver\")");
+            setReceiver("off hook", "Pick up receiver");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+        }
+
+    PlaybackDone
+        MessagePlayed
+        {
+            writeTransition("PlaybackDone");
+        }
+}
+
+MessagePlayed
+    Entry
+    {
+        writeState("Entering CallMap::MessagePlayed");
+
+        writeStateAction(
+            "Entry", "startTimer(\"OffHookTimer\", 10000)");
+        startTimer("OffHookTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::MessagePlayed");
+
+        writeStateAction("Exit", "stopTimer(\"OffHookTimer\")");
+        stopTimer("OffHookTimer");
+    }
+{
+    OffHookTimer
+        LeftOffHook
+        {
+            writeTransition("OffHookTimer");
+        }
+}
+
+//---------------------------------------------------------------
+// Error States.
+//
+// Let someone know the phone has been left off the hook.
+LeftOffHook
+    Entry
+    {
+        writeState("Entering CallMap::LeftOffHook");
+
+        writeStateAction(
+            "Entry", "startTimer(\"LoopTimer\", 10000)");
+        startTimer("LoopTimer", 10000);
+
+        writeStateAction("Entry", "loop(\"phone_off_hook\")");
+        loop("phone_off_hook");
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::MessagePlayed");
+
+        writeStateAction("Exit", "stopTimer(\"LoopTimer\")");
+        stopTimer("LoopTimer");
+
+        writeStateAction("Exit", "stopLoop(\"phone_off_hook\")");
+        stopLoop("phone_off_hook");
+    }
+{
+    LoopTimer
+        WaitForOnHook
+        {
+            writeTransition("WaitForOnHook");
+        }
+
+    Default
+        nil
+        {
+            writeTransition("Default");
+        }
+}
+
+InvalidDigit
+    Entry
+    {
+        writeState("Entering CallMap::InvalidDigit");
+
+        writeStateAction(
+            "Entry", "startTimer(\"LoopTimer\", 10000)");
+        startTimer("LoopTimer", 10000);
+
+        writeStateAction("Entry", "loop(\"fast_busy\")");
+        loop("fast_busy");
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::MessagePlayed");
+
+        writeStateAction("Exit", "stopTimer(\"LoopTimer\")");
+        stopTimer("LoopTimer");
+
+        writeStateAction("Exit", "stopLoop(\"phone_off_hook\")");
+        stopLoop("fast_busy");
+    }
+{
+    LoopTimer
+        WaitForOnHook
+        {
+            writeTransition("LoopTimer");
+        }
+
+    Default
+        nil
+        {
+            writeTransition("Default");
+        }
+}
+
+// Stay in this state until the telephone is on hook.
+WaitForOnHook
+    Entry
+    {
+        writeState("Entering CallMap::WaitForOnHook");
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::WaitForOnHook");
+    }
+{
+    Default
+        nil
+        {
+            writeTransition("Default");
+        }
+}
+
+Default
+{
+    // Ignore any dialings after a phone number has been
+    // collected.
+    Digit(n : String)
+        nil
+        {
+            writeTransition(
+                "CallMap::Default::Digit(" + n + ")");
+        }
+
+    // No matter when it happens, when the phone is hung
+    // up, this call is OVER!
+    OnHook
+        OnHook
+        {
+            writeTransition("CallMap::Default::OnHook");
+
+            writeTransAction(
+                "setReceiver(\"off hook\", \"Pick up receiver\")");
+            setReceiver("off hook", "Pick up receiver");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+        }
+
+    Stop
+        Initialized
+        {
+            writeTransition("CallMap::Default::Stop");
+
+            writeTransAction(
+                "setReceiver(\"off hook\", \"Pick up receiver\")");
+            setReceiver("off hook", "Pick up receiver");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+        }
+
+    // Ignore the clock timer outside of the OnHook state.
+    ClockTimer
+        nil
+        {
+            writeTransition("CallMap::Default::ClockTimer");
+        }
+}
+
+%%
+
+// This map processes dialed digits. It either returns success
+// when a valid telephone number is dialed or failure if an
+// invalid telephone number is detected
+%map PhoneNumber
+%%
+
+DialTone
+    Entry
+    {
+        writeState("Entering PhoneNumber::DialTone");
+
+        writeStateAction("Entry", "loop(\"dialtone\")");
+        loop("dialtone");
+
+        writeStateAction(
+            "Exit", "startTimer(\"OffHookTimer\", 10000)");
+        startTimer("OffHookTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting PhoneNumber::DialTone");
+
+        writeStateAction("Exit", "stopTimer(\"OffHookTimer\")");
+        stopTimer("OffHookTimer");
+
+        writeStateAction("Exit", "stopLoop(\"dialtone\")");
+        stopLoop("dialtone");
+    }
+{
+    // If the first digit is 1, then this is a long distance
+    // phone call. Don't save this first digit.
+    Digit(n : String)
+      [ctxt.equal(n, 1) == true]
+        LongDistance
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("setType(Telephone.LONG_DISTANCE)");
+            setType(Telephone.LONG_DISTANCE);
+
+            writeTransAction("saveAreaCode(" + n + ")");
+            saveAreaCode(n);
+
+            writeTransAction("addDisplay(\"-\")");
+            addDisplay("-");
+        }
+
+    // Check for 911.
+    Digit(n : String)
+      [ctxt.equal(n, 9) == true]
+        NineOneOneStart
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("saveExchange(" + n + ")");
+            saveExchange(n);
+        }
+
+    Digit(n : String)
+        Exchange
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("setType(Telephone.LOCAL)");
+            setType(Telephone.LOCAL);
+
+            writeTransAction("saveExchange(" + n + ")");
+            saveExchange(n);
+        }
+}
+
+// Collect the area and then move on to the local number.
+LongDistance
+    Entry
+    {
+        writeState("Entering PhoneNumber::LongDistance");
+
+        writeStateAction(
+            "Entry", "startTimer(\"OffHookTimer\", 10000)");
+        startTimer("OffHookTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting PhoneNumber::LongDistance");
+
+        writeStateAction("Exit", "stopTimer(\"OffHookTimer\")");
+        stopTimer("OffHookTimer");
+    }
+{
+    Digit(n : String)
+      [ctxt.isCodeComplete() == false]
+        nil
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("saveAreaCode(" + n + ")");
+            saveAreaCode(n);
+
+            writeTransAction("resetTimer(\"OffHookTimer\")");
+            resetTimer("OffHookTimer");
+        }
+
+    Digit(n : String)
+        Exchange
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("saveAreaCode(" + n + ")");
+            saveAreaCode(n);
+
+            writeTransAction("addDisplay(\"-\")");
+            addDisplay("-");
+        }
+}
+
+// Check if this is a 911 call.
+NineOneOneStart
+    Entry
+    {
+        writeState("Entering PhoneNumber::NineOneOneStart");
+
+        writeStateAction(
+            "Entry", "startTimer(\"OffHookTimer\", 10000)");
+        startTimer("OffHookTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting PhoneNumber::NineOneOneStart");
+
+        writeStateAction("Exit", "stopTimer(\"OffHookTimer\")");
+        stopTimer("OffHookTimer");
+    }
+{
+    Digit(n : String)
+      [ctxt.equal(n, 1) == true]
+        NineOne
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("saveAreaCode(" + n + ")");
+            saveExchange(n);
+        }
+
+    Digit(n : String)
+        Exchange
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("setType(Telephone.LOCAL)");
+            setType(Telephone.LOCAL);
+
+            writeTransAction("saveExchange(" + n + ")");
+            saveExchange(n);
+        }
+}
+
+// Almost there.
+NineOne
+    Entry
+    {
+        writeState("Entering PhoneNumber::NineOne");
+
+        writeStateAction(
+            "Entry", "startTimer(\"OffHookTimer\", 10000)");
+        startTimer("OffHookTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting PhoneNumber::NineOne");
+
+        writeStateAction("Exit", "stopTimer(\"OffHookTimer\")");
+        stopTimer("OffHookTimer");
+    }
+{
+    Digit(n : String)
+      [ctxt.equal(n, 1) == true]
+        pop(DialingDone)
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("setType(Telephone.EMERGENCY)");
+            setType(Telephone.EMERGENCY);
+
+            writeTransAction("saveExchange(" + n + ")");
+            saveExchange(n);
+
+            writeTransition("pop(DialingDone)");
+        }
+
+    Digit(n : String)
+        LocalCall
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("setType(Telephone.LOCAL)");
+            setType(Telephone.LOCAL);
+
+            writeTransAction("saveExchange(" + n + ")");
+            saveExchange(n);
+
+            writeTransAction("addDisplay(\"-\")");
+            addDisplay("-");
+        }
+}
+
+// Collect the three digit exchange.
+Exchange
+    Entry
+    {
+        writeState("Entering PhoneNumber::Exchange");
+
+        writeStateAction(
+            "Entry", "startTimer(\"OffHookTimer\", 10000)");
+        startTimer("OffHookTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting PhoneNumber::Exchange");
+
+        writeStateAction("Exit", "stopTimer(\"OffHookTimer\")");
+        stopTimer("OffHookTimer");
+    }
+{
+    Digit(n : String)
+      [ctxt.isExchangeComplete() == false]
+        nil
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("saveExchange(" + n + ")");
+            saveExchange(n);
+
+            writeTransition("resetTimer(\"OffHookTimer\")");
+            resetTimer("OffHookTimer");
+        }
+
+    Digit(n : String)
+        LocalCall
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("saveExchange(" + n + ")");
+            saveExchange(n);
+
+            writeTransAction("addDisplay(\"-\")");
+            addDisplay("-");
+        }
+}
+
+// Process a local call.
+LocalCall
+    Entry
+    {
+        writeState("Entering CallMap::LocalCall");
+
+        writeStateAction(
+            "Entry", "startTimer(\"OffHookTimer\", 10000)");
+        startTimer("OffHookTimer", 10000);
+    }
+    Exit
+    {
+        writeState("Exiting CallMap::LocalCall");
+
+        writeStateAction("Exit", "stopTimer(\"OffHookTimer\")");
+        stopTimer("OffHookTimer");
+    }
+{
+    Digit(n : String)
+      [ctxt.isLocalComplete() == false]
+        nil
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("saveLocal(" + n + ")");
+            saveLocal(n);
+
+            writeTransAction("resetTimer(\"OffHookTimer\")");
+            resetTimer("OffHookTimer");
+        }
+
+    Digit(n : String)
+        pop(DialingDone)
+        {
+            writeTransition("Digit(" + n + ")");
+
+            writeTransAction("playTT(" + n + ")");
+            playTT(n);
+
+            writeTransAction("saveLocal(" + n + ")");
+            saveLocal(n);
+
+            writeTransition("pop(DialingDone)");
+        }
+}
+
+Default
+{
+    // If an invalid digit is dialed, give up collecting
+    // digits immediately.
+    Digit(n: String)
+      [ctxt.isDigitValid(n) == false]
+        pop(InvalidDigit)
+        {
+            writeTransition(
+                "PhoneNumber::Default::Digit(" + n + ")");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+
+            writeTransition("pop(InvalidDigit)");
+        }
+
+    // Caller has stopped dialing and left the phone
+    // off hook.
+    OffHookTimer
+        pop(LeftOffHook)
+        {
+            writeTransition(
+                "PhoneNumber::Default::OffHookTimer");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+
+            writeTransition("pop(LeftOffHook)");
+        }
+
+    // Pass this event up.
+    OnHook
+        pop(OnHook)
+        {
+            writeTransition("PhoneNumber::Default::OnHook");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+
+            writeTransition("pop(OnHook)");
+        }
+
+    Stop
+        pop(Stop)
+        {
+            writeTransition("PhoneNumber::Default::Stop");
+
+            writeTransAction("clearDisplay()");
+            clearDisplay();
+
+            writeTransition("pop(Stop)");
+        }
+
+    // Ignore the clock timer outside of the OnHook state.
+    ClockTimer
+        nil
+        {
+            writeTransition("PhoneNumber::Default::ClockTimer");
+        }
+}
+
+%%

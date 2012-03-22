@@ -1,0 +1,18 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {digitPressed = id; myAction = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {digitPressed = id; offHookPressed = id; onHookPressed = id; }; 
+            CLASS = Telephone; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {"_numberDisplay" = NSTextView; "_receiverButton" = NSButton; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

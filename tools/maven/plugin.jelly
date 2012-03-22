@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<project xmlns:core="jelly:core"
+         xmlns:ant="jelly:ant"
+         xmlns:util="jelly:util"
+         xmlns:maven="jelly:maven">
+
+  <core:set var="smcStatemapPath" value="${smc.statemapPath}"/>
+
+  <goal name="smc:taskdef"
+        description="defines the anttask.">
+    <taskdef name="smc" classname="net.sf.smc.AntTask">
+      <classpath>
+        <pathelement location="${plugin.getDependencyPath('smc:smc-ant')}" />
+        <pathelement location="${plugin.getDependencyPath('smc:smc')}" />
+        <!--
+        <ant:path refid="maven.dependency.classpath"/>
+        -->
+      </classpath>
+    </taskdef>
+  </goal>
+ 
+  <goal name="smc:generate" 
+        description="generates the sources for the statemachine."
+        prereqs="smc:taskdef">
+    <ant:mkdir dir="target/smc" />
+    <smc statemapFile="src/smc/${smc.statemapPath}.sm" outputFileName="target/smc/${smc.statemapPath}Context.java" />
+    
+    <ant:path id="maven.smc.compile.src.set"
+              location="target/smc"/>
+
+    <maven:addPath id="maven.compile.src.set"
+                   refid="maven.smc.compile.src.set"/>
+  </goal>
+  
+  <preGoal name="java:compile">
+    <core:if test="${! smcStatemapPath.equals('NOT_DEFINED')}">
+      <attainGoal name="smc:generate"/>
+    </core:if>
+  </preGoal>
+
+
+</project>
