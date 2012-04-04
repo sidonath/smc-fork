@@ -867,7 +867,7 @@ public final class SmcJSGenerator
                 _guardCount > 1)
             {
                // addCode(indent2);
-                jsFunc.addCode("//# No actions.");
+                jsFunc.addCode("/* No actions. */");
             }
             // If there are:
             // 1. No entry actions,
@@ -889,7 +889,7 @@ public final class SmcJSGenerator
                      _debugFlag == false)*/
             {
               //  addCode(indent2);
-                jsFunc.addCode("//# No actions.");
+                jsFunc.addCode("/* No actions. */");
               //  addCode(indent2);
             }
 
