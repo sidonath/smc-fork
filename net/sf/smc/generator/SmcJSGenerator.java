@@ -785,7 +785,7 @@ public final class SmcJSGenerator
                 // No, this is not the first transition but it
                 // does have a condition. Use an "else if".
                // addCode(_indent);
-                 jsFunc.addCode("} elseif ("+condition+") {");
+                 jsFunc.addCode("else if ("+condition+") {");
             }
             else
             {
