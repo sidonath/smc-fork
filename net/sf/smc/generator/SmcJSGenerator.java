@@ -1288,7 +1288,7 @@ class JSFunction {
         return argumentList;
     }
     public JSFunction addParams(String p){
-        if(p!=null&&p.length()>0){
+        if(argumentList!=null&&argumentList.length()>0){
             argumentList+=","+p;
         } else {
             argumentList = p;
