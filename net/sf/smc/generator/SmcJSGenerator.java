@@ -162,9 +162,6 @@ public final class SmcJSGenerator
             _source.println();
         }
 
-        _source.println("//require_once 'StateMachine/statemap.php';");
-        _source.println();
-
         // Do user-specified imports now.
         for (String imp: fsm.getImports())
         {
