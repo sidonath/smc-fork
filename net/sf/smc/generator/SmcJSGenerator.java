@@ -673,7 +673,7 @@ public final class SmcJSGenerator
         // transition.
         if (_guardIndex > 0 && nullCondition == false)
         {
-            jsFunc.addCode("        } else {");
+            jsFunc.addCode("         else {");
 
             // Call the super class' transition method using
             // the "parent" keyword and not the class name.
