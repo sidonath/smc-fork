@@ -1032,7 +1032,7 @@ public final class SmcJSGenerator
         // Why? Because an "else" or "else if" may follow and we
         // won't know until we go back to the transition source
         // generator whether all clauses have been done.
-        if (_guardCount > 1)
+        if (_guardCount > 1 || (_guardCount == 1 && condition.length() > 0))
         {
            // addCode(_indent);
             jsFunc.addCode("}");
